@@ -117,12 +117,68 @@ Essayez les commandes `mvn clean`, `mvn test` et `mvn compile`. Que se passe-t-i
 mvn clean -> remove target dir
 mvn compile ->
 
-Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project mud_project: Compilation failure: Compilation failure: 
-[ERROR] Source option 5 is no longer supported. Use 7 or later.
-[ERROR] Target option 5 is no longer supported. Use 7 or later.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< mud_moi:mud_project >-------------------------
+[INFO] Building mud_project 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ mud_project ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/local/o22302615/R2_03_TP_4/mud_project/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ mud_project ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.949 s
+[INFO] Finished at: 2024-03-12T16:05:37+01:00
+[INFO] ------------------------------------------------------------------------
 
 mvn test -> 
-pareil
+
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< mud_moi:mud_project >-------------------------
+[INFO] Building mud_project 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ mud_project ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/local/o22302615/R2_03_TP_4/mud_project/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ mud_project ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ mud_project ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ mud_project ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ mud_project ---
+[INFO] Surefire report directory: /home/local/o22302615/R2_03_TP_4/mud_project/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running mud_moi.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+Running mud_moi.TestsBoxes
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec
+
+Results :
+
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.610 s
+[INFO] Finished at: 2024-03-12T16:02:22+01:00
+[INFO] ------------------------------------------------------------------------
 
 ### Ajout de règles à mvn pour la lib gson
 
@@ -231,6 +287,10 @@ Puis configurer le plugin maven-shade-plugin pour packager votre App dans un fic
 Où est placé le jar obtenu ? Comment l'utiliser ?
 
 
+/target/mud_project-1.0-SNAPSHOT.jar
+package mud_moi;
+
+
 puis ajoutez le plugin  maven-exec-plugin pour executer directement l'App :
 
 ```xml
@@ -246,8 +306,12 @@ puis ajoutez le plugin  maven-exec-plugin pour executer directement l'App :
 
 Tapez `mvn exec:java` pour cette nouvelle cible.
  
+niquelle
+
 
 Au total, quelles cibles mvn sont-elles maintenant disponibles ?
+
+validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy, pre-clean, clean, post-clean, pre-site, site, post-site, site-deploy
 
 Ce n'est pas la peine de versionner le dossier *target* !
 

@@ -1,7 +1,9 @@
 package mud_moi;
+
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.google.gson.Gson;
 /**
  * box
  */
@@ -180,4 +182,17 @@ public class Box {
         return null;
     }
 
+    /**
+     * fromJSON
+     * @param path String
+     * @return Box 
+     * @throws Exception except
+     */
+    public static Box fromJSON(String path) throws Exception{
+        FileReader fr = new FileReader(path);
+        Gson gson = new Gson();
+        Box ma_boite = gson.fromJson(fr, Box.class);
+        System.out.println("boite : "+ma_boite);
+        return ma_boite;
+    }
 }
