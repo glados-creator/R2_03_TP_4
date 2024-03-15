@@ -1,6 +1,9 @@
 package mud_moi;
 
 import java.io.FileReader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.Gson;
@@ -190,9 +193,31 @@ public class Box {
      */
     public static Box fromJSON(String path) throws Exception{
         FileReader fr = new FileReader(path);
+        // String text = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
+        // System.out.println("file read");
+        // System.out.println(text);
         Gson gson = new Gson();
         Box ma_boite = gson.fromJson(fr, Box.class);
-        System.out.println("boite : "+ma_boite);
         return ma_boite;
     }
+
+    /**
+     * toJSON
+     * @return String
+     */
+    public String toJSON(){
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " content='" + this.content + "'" +
+            ", open='" + this.isopen() + "'" +
+            ", capacity='" + this.capacity + "'" +
+            "}";
+    }
+
 }

@@ -15,14 +15,18 @@ public class App
         b.add(truc);
         b.add(machin);
         b.actionLook();
+
+        System.out.println(b.toJSON());
+
         try {
             
             // use the file test1.json in ressources folder
-            String path = "/home/iut45/Etudiants/o22302615/local/R2_03_TP_4/mud_project/src/main/resources/test1.json";
+            String path = "/media/o22302615/PAVARDARTHU/iuto/2_semestre/cour/qualitate/R2_03_TP_4/mud_project/src/test/resources/test1.json";
             System.out.println("json path : '"+path+"'");
             Box test = Box.fromJSON(path);
             assert test.capacity() == -1;
             assert test.isopen();
+            System.out.println("boite : "+test.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

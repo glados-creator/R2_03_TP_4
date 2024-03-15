@@ -1,17 +1,1 @@
-[
-    {
-        "name": "Boite 1",
-        "capacity": 3,
-        "open": true
-    },
-    {
-        "name": "Boite 2",
-        "capacity": 6,
-        "open": false
-    },
-    {
-        "name": "Boite 3",
-        "capacity": -1,
-        "open": true
-    }
-]
+{"content":[{"name":"truc","vol":1},{"name":"machin","vol":1}],"open":true,"capacity":-1}
